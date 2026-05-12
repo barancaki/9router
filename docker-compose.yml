@@ -3,16 +3,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: 9router
     restart: unless-stopped
     ports:
       - "20128:20128"
     environment:
-      - NODE_ENV=production
-      - PORT=20128
-      - HOSTNAME=0.0.0.0
-      - DATA_DIR=/app/data
-      - NEXT_PUBLIC_BASE_URL=${SERVICE_FQDN_9ROUTER}
+      NODE_ENV: production
+      PORT: 20128
+      HOSTNAME: 0.0.0.0
+      DATA_DIR: /app/data
+      NEXT_PUBLIC_BASE_URL: ${SERVICE_FQDN_9ROUTER}
     volumes:
       - 9router-data:/app/data
 
